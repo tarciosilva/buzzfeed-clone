@@ -1,0 +1,22 @@
+<div class="container__quizz">
+  <header class="quizz-logo">
+    <img src="../../../assets/img/logo.png" alt="buzzfeed logo">
+    <h3>{{ titles }}</h3>
+  </header>
+  <section class="quizz-quastions" *ngIf=!finished>
+    <h3>{{ questionSelected.question }}</h3>
+  </section>
+  <section class="quizz-options" *ngIf=!finished>
+    <button
+      class="quizz-options__btn"
+      (click)="playerChoose(option.alias)"
+      *ngFor="let option of questionSelected.options"
+    >
+      {{ option.name }}
+    </button>
+  </section>
+  <section *ngIf=finished class="quizz-results">
+    <h1>your result is</h1>
+    <p>{{ answersSelected }}</p>
+  </section>
+</div>
